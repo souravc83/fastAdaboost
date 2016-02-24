@@ -1,0 +1,32 @@
+Package: fastAdaboost
+Type: Package
+Title: a fast implementation of adaboost.M1 and real adaboost
+Description: This library implements a Rcpp based blazingly fast implementation
+        of adaboost.m1 and real adaboost. This will be especially  well suited 
+        for big datasets. The library currently supports decision trees as the weak 
+        classifier. Once the classifiers have been trained, they can be used to 
+        predict new datasets. Currently, we support only binary classification task.
+        In addition to calculating the final error, a staged error is also calculated
+        for each additional tree. This can be used to tune the final number of 
+        iterations. A plot of the staged error is also generated to help the user 
+        decide. 
+Version: 1.0
+Date: 2016-01-30
+Author: person("Sourav", "Chatterjee", , "souravc83@gmail.com", c("aut", "cre"))
+Maintainer: Sourav Chatterjee <souravc83@gmail.com>
+License: MIT + file LICENSE
+URL: https://github.com/souravc83/fastAdaboost
+BugReports: https://github.com/souravc83/fastAdaboost/issues
+Depends:
+    R (>= 3.1.2)
+Imports:
+    Rcpp,
+    rpart
+Suggests:
+    testthat,
+    knitr,
+    MASS
+VignetteBuilder: knitr
+LazyData: yes
+LinkingTo: Rcpp (>= 0.12.0)
+RoxygenNote: 5.0.1
