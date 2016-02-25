@@ -10,9 +10,10 @@
 wrap_rpart <- function(formula_obj,newdata, weight_vec,classnames_map)
 {
   formula <- as.formula(formula_obj)
-  tmp_wt <<- weight_vec
   rpart_control <- rpart::rpart.control(cp=0)
-  tree_fit <- rpart::rpart(formula,newdata,weights = tmp_wt, control = rpart_control)
+  environment(formula)<-environment() #re-sets the formula environment   
+  #otherwise the weight_vec is not interpreted properly
+  tree_fit <- rpart::rpart(formula,newdata,weights = weight_vec, control = rpart_control)
   train_learn <- predict(tree_fit,type="class")
   train_prob <- predict(tree_fit, type="prob")[,1]
   #convert the class to 0/1 using the classname_map provided as input
