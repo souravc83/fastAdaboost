@@ -49,10 +49,11 @@ print(table(pred_real$class,fakedata$Y))
 ```
 
 ## Performance Benchmarking
-How fast is fastAdaboost compared to native R implementations? I used microbenchmark package to 
+How fast is fastAdaboost compared to native R implementations? I used the microbenchmark package to 
 compare the running times of fastAdaboost with Adabag, which is one of the most popular native 
-R based libraries which implements the adaboost algorithm.
-
+R based libraries which implements the Adaboost algorithm.
+The benchmarking indicates that fastAdaboost is about ~45-50 times faster than
+R based implementation. This is a huge benefit when data sizes are large.
 ```r
 library(microbenchmark)
 library(adabag)
@@ -91,4 +92,3 @@ print(
 #>  2659.99737 2848.80065 2809.39769 2988.49017 3629.1527   100   b
 #>    35.72336   45.21379   37.16913   42.22947  242.7932   100  a
 ```
-
