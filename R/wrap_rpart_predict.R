@@ -2,6 +2,7 @@
 #'with Rcpp
 #'@noRd
 #'@import rpart
+#'@import stats
 #'@param tree_object object of class rpart
 #'@param newdata dataframe
 #'@param classnames_map named vector mapping classnames to 0/1
@@ -20,6 +21,7 @@ wrap_rpart_predict <- function(tree_object, newdata, classnames_map)
 #'for use with Rcpp
 #'@noRd
 #'@import rpart
+#'@import stats
 #'@param tree_object object of class rpart
 #'@param newdata dataframe
 #'@return pred_vec vector of probability that

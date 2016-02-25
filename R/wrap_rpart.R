@@ -1,6 +1,7 @@
 #'wraps the rpart call for ease of use with Rcpp
 #'@noRd
 #'@import rpart
+#'@import stats
 #'@param formula_obj formula object
 #'@param newdata dataframe with requisite columns
 #'@param weight_vec vector of numeric values,weights for each example
