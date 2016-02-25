@@ -30,6 +30,7 @@
 #'test_adaboost <- adaboost(Y~X, fakedata, 10)
 #'pred <- predict( test_adaboost,newdata=fakedata)
 #'print(pred$error)
+#'print( table(pred$class,fakedata$Y) )
 
 predict.adaboost <- function(object, newdata,...)
 {
@@ -69,6 +70,7 @@ predict.adaboost <- function(object, newdata,...)
 #'test_real_adaboost <- real_adaboost(Y~X, fakedata, 10)
 #'pred <- predict(test_real_adaboost,newdata=fakedata)
 #'print(pred$error)
+#'print( table(pred$class,fakedata$Y) )
 #'
 #'@seealso \code{\link{real_adaboost}}
 #'

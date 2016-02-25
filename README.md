@@ -25,14 +25,26 @@ num_each <- 1000
 fakedata <- data.frame( X=c(rnorm(num_each,0,1),rnorm(num_each,1.5,1)), Y=c(rep(0,num_each),rep(1,num_each) ) )
 fakedata$Y <- factor(fakedata$Y)
 #run adaboost
-A <- adaboost(Y~X, fakedata, 10)
+test_adaboost <- adaboost(Y~X, fakedata, 10)
 #print(A)
-pred <- predict(A,newdata=fakedata)
+pred <- predict( test_adaboost, newdata=fakedata)
 print(paste("Adaboost Error on fakedata:",pred$error))
+#> [1] "Adaboost Error on fakedata: 0.1235"
+print(table(pred$class,fakedata$Y))
+#>    
+#>       0   1
+#>   0 838  85
+#>   1 162 915
 
-B <- real_adaboost(Y~X, fakedata, 10)
-pred_real <- predict(B,fakedata)
+test_real_adaboost <- real_adaboost(Y~X, fakedata, 10)
+pred_real <- predict(test_real_adaboost,newdata=fakedata)
 print(paste("Real Adaboost Error on fakedata:", pred_real$error))
+#> [1] "Real Adaboost Error on fakedata: 0.1085"
+print(table(pred_real$class,fakedata$Y))
+#>    
+#>       0   1
+#>   0 918 135
+#>   1  82 865
 ```
 
 

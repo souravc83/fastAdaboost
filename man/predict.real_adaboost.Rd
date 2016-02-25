@@ -41,6 +41,7 @@ fakedata$Y <- factor(fakedata$Y)
 test_real_adaboost <- real_adaboost(Y~X, fakedata, 10)
 pred <- predict(test_real_adaboost,newdata=fakedata)
 print(pred$error)
+print( table(pred$class,fakedata$Y) )
 
 }
 \seealso{

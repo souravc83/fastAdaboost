@@ -26,7 +26,7 @@ devtools::install_github("souravc83/fastAdaboost")
 ```
 
 ## Quick Demo
-```{r,eval = FALSE}
+```{r,eval = T}
 library("fastAdaboost")
 
 num_each <- 1000
@@ -37,10 +37,14 @@ test_adaboost <- adaboost(Y~X, fakedata, 10)
 #print(A)
 pred <- predict( test_adaboost, newdata=fakedata)
 print(paste("Adaboost Error on fakedata:",pred$error))
+print(table(pred$class,fakedata$Y))
 
 test_real_adaboost <- real_adaboost(Y~X, fakedata, 10)
 pred_real <- predict(test_real_adaboost,newdata=fakedata)
 print(paste("Real Adaboost Error on fakedata:", pred_real$error))
+print(table(pred_real$class,fakedata$Y))
+
+
 ```
 
 

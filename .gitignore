@@ -1,2 +1,5 @@
 *.o
 .Rbuildignore
+.RData
+.RHistory
+*/*.tex

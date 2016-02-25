@@ -10,6 +10,7 @@ test_that("Cars93 data works, for adaboost M1",{
   ada_obj <- adaboost(Origin~Length+Wheelbase+Width+AirBags+DriveTrain, Cars93, 10)
   pred <- predict(ada_obj, Cars93)
   print(paste("Adaboost Error on Cars93:", pred$error))
+  print( table(pred$class, Cars93$Origin) )
 })
 
 test_that("Cars93 data works, for real adaboost",{  
@@ -17,5 +18,7 @@ test_that("Cars93 data works, for real adaboost",{
   pred <- predict(ada_obj, Cars93)
   #print(pred$class)
   print(paste("Real Adaboost Error on Cars93:", pred$error))
+  print( table(pred$class, Cars93$Origin) )
+  
 })
 

@@ -40,6 +40,7 @@ fakedata$Y <- factor(fakedata$Y)
 test_adaboost <- adaboost(Y~X, fakedata, 10)
 pred <- predict( test_adaboost,newdata=fakedata)
 print(pred$error)
+print( table(pred$class,fakedata$Y) )
 }
 \seealso{
 \code{\link{adaboost}}

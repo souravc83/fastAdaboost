@@ -6,6 +6,7 @@ test_that("Bacteria dataset works",{
     boost_obj <- adaboost(y~.,bacteria , 10)
     pred <- predict(boost_obj,bacteria)
     print(paste("Adaboost Error:",pred$error))
+    print( table(pred$class,bacteria$y) )
 })
 #  
 test_that("bacteria dataset works with a selection of variables",{
@@ -13,6 +14,7 @@ test_that("bacteria dataset works with a selection of variables",{
     boost_obj <- adaboost(y~ap+hilo+week,bacteria , 10)
     pred <- predict(boost_obj, bacteria)
     print(paste("Adaboost Error:",pred$error))
+    print( table(pred$class,bacteria$y) )
 })
 
 test_that("bacteria dataset works with unlabeled data",{
