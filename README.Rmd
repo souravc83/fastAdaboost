@@ -28,6 +28,7 @@ devtools::install_github("souravc83/fastAdaboost")
 ## Quick Demo
 ```{r,eval = T}
 library("fastAdaboost")
+set.seed(9999)
 
 num_each <- 1000
 fakedata <- data.frame( X=c(rnorm(num_each,0,1),rnorm(num_each,1.5,1)), Y=c(rep(0,num_each),rep(1,num_each) ) )
@@ -47,5 +48,33 @@ print(table(pred_real$class,fakedata$Y))
 
 ```
 
+## Performance Benchmarking
+How fast is fastAdaboost compared to native R implementations? I used microbenchmark package to 
+compare the running times of fastAdaboost with Adabag, which is one of the most popular native 
+R based libraries which implements the adaboost algorithm.
+```{r, eval=TRUE}
+library(microbenchmark)
+library(adabag)
+library(MASS)
 
+#using fastAdaboost
+data(bacteria)
+print(
+  microbenchmark
+  ( 
+    boost_obj <- adaboost(y~.,bacteria , 10),
+    pred <- predict(boost_obj,bacteria) 
+  )
+  )
+
+#using adabag
+print(
+  microbenchmark
+  ( 
+    adabag_obj <-boosting(y~.,bacteria,boos=F,mfinal=10),
+    pred_adabag <- predict(adabag_obj, bacteria)
+  )
+  )
+
+```
 
