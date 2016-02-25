@@ -1,18 +1,16 @@
 Package: fastAdaboost
 Type: Package
-Title: a fast implementation of adaboost.M1 and real adaboost
-Description: This library implements a Rcpp based blazingly fast implementation
-        of adaboost.m1 and real adaboost. This will be especially  well suited 
-        for big datasets. The library currently supports decision trees as the weak 
-        classifier. Once the classifiers have been trained, they can be used to 
-        predict new datasets. Currently, we support only binary classification task.
-        In addition to calculating the final error, a staged error is also calculated
-        for each additional tree. This can be used to tune the final number of 
-        iterations. A plot of the staged error is also generated to help the user 
-        decide. 
+Title: a fast implementation of Adaboost 
+Description: This library implements a C++ based blazingly fast implementation
+             of adaboost, especially useful for large, in memory data sets. 
+             The library uses decision trees as weak classifiers. Once the classifiers
+             have been trained, they can be used to predict new datasets. 
+             Currently, we support only binary classification tasks.
+             The library implements the Adaboost.M1 algorithm and the real
+             adaboost(SAMME.R) algorithm.
 Version: 1.0
-Date: 2016-01-30
-Author: person("Sourav", "Chatterjee", , "souravc83@gmail.com", c("aut", "cre"))
+Date: 2016-02-23
+Author: Sourav Chatterjee [aut, cre]
 Maintainer: Sourav Chatterjee <souravc83@gmail.com>
 License: MIT + file LICENSE
 URL: https://github.com/souravc83/fastAdaboost

@@ -1,13 +1,15 @@
 #'predict method for adaboost objects
 #'
 #'predictions for model corresponding to adaboost.m1 algorithm
-
-#'makes predictions for an adaboost object on a new dataset
-#'and also calculates the error if the target variable is 
-#'avaiable in the dataset. The target variable is not required 
+#'
+#'makes predictions for an adaboost object on a new dataset.
+#'The target variable is not required 
 #'for the prediction to work.
 #'However, the user must ensure that the test data has the same 
 #'columns which were used as inputs to fit the original model.
+#'The error component of the prediction object(as in 
+#'\code{pred$error}) can be used to get the error of the 
+#'test set if the test data is labeled.
 #'
 #'@seealso \code{\link{adaboost}}
 
@@ -15,7 +17,12 @@
 #'@param object an object of class adaboost
 #'@param newdata dataframe on which we are looking to predict
 #'@param ... arguments passed to predict.default
-#'@return predictor predicted object with prediction probabilities
+#'@return predicted object, which is a list with the following components
+#'\item{formula}{the formula used.}
+#'\item{votes}{total weighted votes achieved by each class}
+#'\item{class}{the class predicted by the classifier}
+#'\item{prob}{a matrix with predicted probability of each class for each observation}
+#'\item{error}{The error on the test data if labeled, otherwise \code{NA}}
 #'@export
 #'@examples
 #'fakedata <- data.frame( X=c(rnorm(100,0,1),rnorm(100,1,1)), Y=c(rep(0,100),rep(1,100) ) )
@@ -34,20 +41,27 @@ predict.adaboost <- function(object, newdata,...)
 #'predict method for real_adaboost objects
 #'
 #'predictions for model corresponding to real_adaboost algorithm
-
+#'
 #'makes predictions for an adaboost object on a new dataset
-#'using the real_adaboost algorithm, 
-#'and also calculates the error if the target variable is 
-#'avaiable in the dataset. The target variable is not required 
+#'using the real_adaboost algorithm.
+#' The target variable is not required 
 #'for the prediction to work.
 #'However, the user must ensure that the test data has the same 
 #'columns which were used as inputs to fit the original model.
+#'The error component of the prediction object(as in 
+#'\code{pred$error}) can be used to get the error of the 
+#'test set if the test data is labeled.
 #'
 #'@import rpart
 #'@param object an object of class real_adaboost
 #'@param newdata dataframe on which we are looking to predict
 #'@param ... arguments passed to predict.default
-#'@return predictor predicted object with prediction probabilities
+#'@return predicted object, which is a list with the following components
+#'\item{formula}{the formula used.}
+#'\item{votes}{total weighted votes achieved by each class}
+#'\item{class}{the class predicted by the classifier}
+#'\item{prob}{a matrix with predicted probability of each class for each observation}
+#'\item{error}{The error on the test data if labeled, otherwise \code{NA}}
 #'@export
 #'@examples
 #'fakedata <- data.frame( X=c(rnorm(100,0,1),rnorm(100,1,1)), Y=c(rep(0,100),rep(1,100) ) )

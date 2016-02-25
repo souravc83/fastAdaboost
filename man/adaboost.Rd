@@ -15,12 +15,15 @@ adaboost(formula, data, nIter, ...)
 
 \item{...}{other optional arguments, not implemented now}
 }
+\value{
+object of class adaboost
+}
 \description{
 Implements Freund and Schapire's Adaboost.M1 algorithm
 }
 \details{
 This implements the Adaboost.M1 algorithm for a binary classification task.
-The target variable must a a factor with exactly two levels.
+The target variable must be a factor with exactly two levels.
 The final classifier is a linear combination of weak decision tree classifiers.
 }
 \examples{
@@ -34,6 +37,6 @@ Freund, Y. and Schapire, R.E. (1996):\dQuote{Experiments with a new boosting alg
 pp. 148--156, Morgan Kaufmann.
 }
 \seealso{
-\code{\link{real_adaboost}},\code{\link{predict.adaboost}}
+\code{\link{real_adaboost}}, \code{\link{predict.adaboost}}
 }
 

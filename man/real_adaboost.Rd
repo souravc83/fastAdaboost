@@ -15,12 +15,15 @@ real_adaboost(formula, data, nIter, ...)
 
 \item{...}{other optional arguments, not implemented now}
 }
+\value{
+object of class real_adaboost
+}
 \description{
 Implements Zhu et al's real adaboost or SAMME.R algorithm
 }
 \details{
 This implements the real adaboost algorithm for a binary classification 
-task. #'The target variable must a a factor with exactly two levels.
+task. The target variable must a a factor with exactly two levels.
 The final classifier is a linear combination of weak decision tree
 classifiers. Real adaboost uses the class probabilities of the weak classifiers
 to iteratively update example weights. It has been found to have lower

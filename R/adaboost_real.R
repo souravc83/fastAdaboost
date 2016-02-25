@@ -3,7 +3,7 @@
 #'Implements Zhu et al's real adaboost or SAMME.R algorithm
 #'
 #'This implements the real adaboost algorithm for a binary classification 
-#'task. #'The target variable must a a factor with exactly two levels.
+#'task. The target variable must a a factor with exactly two levels.
 #'The final classifier is a linear combination of weak decision tree
 #'classifiers. Real adaboost uses the class probabilities of the weak classifiers
 #'to iteratively update example weights. It has been found to have lower
@@ -14,6 +14,7 @@
 #'@param data Input dataframe
 #'@param nIter no. of classifiers 
 #'@param ... other optional arguments, not implemented now
+#'@return object of class real_adaboost
 #'@export 
 #'@examples 
 #'fakedata <- data.frame( X=c(rnorm(100,0,1),rnorm(100,1,1)), Y=c(rep(0,100),rep(1,100) ) )
