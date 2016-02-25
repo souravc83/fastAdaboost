@@ -8,7 +8,7 @@ Description: This library implements a C++ based blazingly fast implementation
              Currently, we support only binary classification tasks.
              The library implements the Adaboost.M1 algorithm and the real
              Adaboost(SAMME.R) algorithm.
-Version: 1.0
+Version: 1.0.0
 Date: 2016-02-23
 Author: Sourav Chatterjee [aut, cre]
 Maintainer: Sourav Chatterjee <souravc83@gmail.com>
