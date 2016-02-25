@@ -4,4 +4,6 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. 
+There were no ERRORs or WARNINGs or NOTES in local OSX install.
+1 error and 1 note in win-builder relating to use of std::to_string()
+travis still syncing

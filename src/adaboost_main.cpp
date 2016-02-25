@@ -1,4 +1,5 @@
 #include <Rcpp.h>
+#include<sstream>
 using namespace Rcpp;
 
 
@@ -241,7 +242,12 @@ List adaboost_main_loop_(SEXP formula_obj, DataFrame data_df, int nIter, Functio
     }
     
     //because rcpp will not accept integers as list names
-    std::string list_name = std::to_string(i);
+    //std::to_string() does not pass win_build, due to C++11 issues
+    // hence replacing with sstream based implementation
+    std::ostringstream ss;
+    ss << i;
+    std::string list_name =  ss.str();
+    //std::string list_name = std::to_string(i);
     tree_list[list_name] = boost_result["tree"];
     
     err = boost_result["error"];
