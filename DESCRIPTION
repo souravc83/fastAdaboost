@@ -1,12 +1,12 @@
 Package: fastAdaboost
 Type: Package
 Title: a Fast Implementation of Adaboost 
-Description: This library implements a C++ based blazingly fast implementation
-             of Adaboost, especially useful for large, in memory data sets. 
-             The library uses decision trees as weak classifiers. Once the classifiers
+Description: Implements Adaboost based on C++ backend code.
+             This is blazingly fast and especially useful for large, in memory data sets. 
+             The package uses decision trees as weak classifiers. Once the classifiers
              have been trained, they can be used to predict new data. 
              Currently, we support only binary classification tasks.
-             The library implements the Adaboost.M1 algorithm and the real
+             The package implements the Adaboost.M1 algorithm and the real
              Adaboost(SAMME.R) algorithm.
 Version: 1.0.0
 Date: 2016-02-23
