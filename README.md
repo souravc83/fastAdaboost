@@ -5,13 +5,17 @@
 
 
 # fastAdaboost [![Travis-CI Build Status](https://travis-ci.org/souravc83/fastAdaboost.svg?branch=master)](https://travis-ci.org/souravc83/fastAdaboost) 
-fastAdaboost is a blazingly fast implementation of adaboost for R. It uses C++ code in the backend to provide an implementation of adaboost that is about 100 times faster than native R based libraries currently available. This is especially useful if your data size is large. fastAdaboost works only 
+fastAdaboost is a blazingly fast implementation of adaboost for R. It uses C++ code in the backend to provide an implementation of adaboost that is about 50 times faster than native R based libraries currently available. This is especially useful if your data size is large. fastAdaboost works only 
 for binary classification tasks presently. It implements Freund and Schapire's Adaboost.M1 and 
 Zhu et. al's SAMME.R (real adaboost) algorithms.
 
 ## Install
-It is not submitted to CRAN yet.
+Install from CRAN
+```r
+install.packages("fastAdaboost")
+```
 
+Install from Github:
 ```r
 devtools::install_github("souravc83/fastAdaboost")
 ```
