@@ -4,7 +4,7 @@
 
 
 
-# fastAdaboost [![Travis-CI Build Status](https://travis-ci.org/souravc83/fastAdaboost.svg?branch=master)](https://travis-ci.org/souravc83/fastAdaboost)[!downloads](http://cranlogs.r-pkg.org/badges/grand-total/fastAdaboost) 
+# fastAdaboost [![Travis-CI Build Status](https://travis-ci.org/souravc83/fastAdaboost.svg?branch=master)](https://travis-ci.org/souravc83/fastAdaboost)![downloads](http://cranlogs.r-pkg.org/badges/grand-total/fastAdaboost) 
 fastAdaboost is a blazingly fast implementation of adaboost for R. It uses C++ code in the backend to provide an implementation of adaboost that is about 50 times faster than native R based libraries currently available. This is especially useful if your data size is large. fastAdaboost works only 
 for binary classification tasks presently. It implements Freund and Schapire's Adaboost.M1 and 
 Zhu et. al's SAMME.R (real adaboost) algorithms.
