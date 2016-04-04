@@ -38,19 +38,21 @@ adaboost_fast<-function(formula, data, nIter, method)
   #(1) remove NAs in the dependent variable
   #(2) make dependent variable a factor if not already
   depvar_name <- as.character(formula)[2]
-  data <-data[ !(is.na(data[,depvar_name])) , ]
   
-  if( class(data[,depvar_name]) !="factor" )
-    data[,depvar_name] <- factor(data[,depvar_name])
+  depvar_vals <- data[[depvar_name]]
+  data <-data[ !is.na(depvar_vals) , ]
+  
+  if( class(depvar_vals) !="factor" )
+    data[, depvar_name] <- factor(depvar_vals)
     
   #check if preconditions are satisfied
   precondition_checks(formula, data)
   
   #convert the factor to 0/1 and remember names
-  classnames_map <- levels(data[,depvar_name])
+  classnames_map <- levels(depvar_vals)
   
   names(classnames_map) <- c("A","B")
-  vardep = ifelse(data[,depvar_name]==classnames_map["A"],0,1)  
+  vardep = ifelse(depvar_vals == classnames_map["A"],0,1)  
   
   #print(depvar_name)
   #print(levels(data[,depvar_name]))
